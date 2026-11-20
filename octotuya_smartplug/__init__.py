@@ -1,8 +1,5 @@
-# coding=utf-8
-from __future__ import absolute_import
-
 import octoprint.plugin
-from octoprint.server import user_permission
+from octoprint.access import groups
 import socket
 import json
 import logging
@@ -11,6 +8,7 @@ import re
 import threading
 import time
 import tinytuya
+user_permission = groups.GroupPermission(groups.USER_GROUP)
 
 
 class octotuyaPlugin(
@@ -431,8 +429,7 @@ class octotuyaPlugin(
 # can be overwritten via __plugin_xyz__ control properties. See the documentation for that.
 __plugin_name__ = "OctoTuya SmartPlug"
 __plugin_version__ = "0.1.0"
-__plugin_pythoncompat__ = ">=2.7,<4"
-
+__plugin_pythoncompat__ = ">=3.7,<4"    # CHANGED (was ">=2.7,<4")
 
 def __plugin_load__():
     global __plugin_implementation__
