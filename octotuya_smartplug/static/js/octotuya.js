@@ -185,43 +185,6 @@ $(function() {
 				});
         };
 
-		self.disconnectPrinter = function() {
-            $.ajax({
-                url: API_BASEURL + "plugin/octotuya",
-                type: "POST",
-                dataType: "json",
-                data: JSON.stringify({
-                    command: "disconnectPrinter"
-                }),
-                contentType: "application/json; charset=UTF-8"
-            });
-		}
-
-		self.connectPrinter = function() {
-            $.ajax({
-                url: API_BASEURL + "plugin/octotuya",
-                type: "POST",
-                dataType: "json",
-                data: JSON.stringify({
-                    command: "connectPrinter"
-                }),
-                contentType: "application/json; charset=UTF-8"
-            });
-		}
-
-/* 		self.sysCommand = function(sysCmd) {
-            $.ajax({
-                url: API_BASEURL + "plugin/octotuya",
-                type: "POST",
-                dataType: "json",
-                data: JSON.stringify({
-                    command: "sysCommand",
-					cmd: sysCmd
-                }),
-                contentType: "application/json; charset=UTF-8"
-            });
-		} */
-
 		self.checkStatuses = function() {
 			ko.utils.arrayForEach(self.settings.settings.plugins.octotuya.arrSmartplugs(),function(item){
 				if(item.label() !== "") {
