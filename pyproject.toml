@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=67"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "OctoTuya-SmartPlug"
+version = "0.1.0"
+description = "Plugin to control Tuya based Smart Plugs"
+authors = [{ name = "andrelucca", email = "andlucca@hotmail.com" }]
+license = { text = "AGPL-3.0-or-later" }
+requires-python = ">=3.7,<4"
+dependencies = ["tinytuya"]
+
+[project.urls]
+Homepage = "https://github.com/andrelucca/OctoTuya-SmartPlug"
+
+[project.entry-points."octoprint.plugin"]
+octotuya = "octotuya_smartplug"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["octotuya_smartplug", "octotuya_smartplug.*"]
